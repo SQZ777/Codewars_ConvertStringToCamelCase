@@ -37,6 +37,12 @@ namespace Codewars_ConvertStringToCamelCase
             Assert.AreEqual("Abc", Kata.UpperTitle("aBC"));
         }
 
+        [TestMethod]
+        public void Input_adashb_Should_Be_aB()
+        {
+            Assert.AreEqual("aB",Kata.ToCamelCase("a-b"));
+        }
+
     }
 
     public class Kata
