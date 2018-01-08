@@ -21,13 +21,13 @@ namespace Codewars_ConvertStringToCamelCase
         [TestMethod]
         public void Input_adash_Should_Be_a()
         {
-            Assert.AreEqual("a",Kata.ToCamelCase("a-"));
+            Assert.AreEqual("a", Kata.ToCamelCase("a-"));
         }
 
         [TestMethod]
-        public void Input_adashb_Should_Be_aB()
+        public void UpperIt_Input_adashb_Should_Be_aB()
         {
-            Assert.AreEqual("aB",Kata.ToCamelCase("a-b"));
+            Assert.AreEqual("aB", Kata.ToCamelCase("a-b"));
         }
 
     }
