@@ -31,6 +31,12 @@ namespace Codewars_ConvertStringToCamelCase
             Assert.AreEqual("Abc", Kata.UpperTitle("abc"));
         }
 
+        [TestMethod]
+        public void UpperTitle_Input_aBC_Should_Be_Abc()
+        {
+            Assert.AreEqual("Abc", Kata.UpperTitle("aBC"));
+        }
+
     }
 
     public class Kata
@@ -38,13 +44,19 @@ namespace Codewars_ConvertStringToCamelCase
         public static string ToCamelCase(string s)
         {
             var strs = s.Split(s.Contains("-") ? '-' : '_');
+            for (int i = 1; i < strs.Length; i++)
+            {
+                strs[i] = UpperTitle(strs[i]);
+            }
             return strs.Aggregate(string.Empty, (current, str) => current + str);
         }
 
 
         public static string UpperTitle(string str)
         {
-            return str.Substring(0, 1).ToUpper() + (str.Length > 1 ? str.Substring(1) : string.Empty);
+            if (string.IsNullOrEmpty(str))
+                return string.Empty;
+            return str.Substring(0, 1).ToUpper() + (str.Length > 1 ? str.Substring(1).ToLower() : string.Empty);
         }
     }
 }
