@@ -6,8 +6,17 @@ namespace Codewars_ConvertStringToCamelCase
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public void Input_dash_Should_Be_Empty()
         {
+            Assert.AreEqual(string.Empty,Kata.ToCamelCase("-"));
+        }
+    }
+
+    public class Kata
+    {
+        public static string ToCamelCase(string s)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
