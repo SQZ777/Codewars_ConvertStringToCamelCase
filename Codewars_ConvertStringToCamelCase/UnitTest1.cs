@@ -18,6 +18,18 @@ namespace Codewars_ConvertStringToCamelCase
             Assert.AreEqual(string.Empty, Kata.ToCamelCase("_"));
         }
 
+        [TestMethod]
+        public void Input_adash_Should_Be_a()
+        {
+            Assert.AreEqual("a",Kata.ToCamelCase("a-"));
+        }
+
+        [TestMethod]
+        public void Input_adashb_Should_Be_aB()
+        {
+            Assert.AreEqual("aB",Kata.ToCamelCase("a-b"));
+        }
+
     }
 
     public class Kata
