@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -25,9 +26,9 @@ namespace Codewars_ConvertStringToCamelCase
         }
 
         [TestMethod]
-        public void UpperTitle_Input_adashb_Should_Be_aB()
+        public void UpperTitle_Input_Abc_Should_Be_abc()
         {
-            Assert.AreEqual("aB", Kata.UpperTitle("a-b"));
+            Assert.AreEqual("Abc", Kata.UpperTitle("abc"));
         }
 
     }
@@ -43,7 +44,7 @@ namespace Codewars_ConvertStringToCamelCase
 
         public static string UpperTitle(string str)
         {
-            throw new System.NotImplementedException();
+            return str.Substring(0, 1).ToUpper() + (str.Length > 1 ? str.Substring(1) : string.Empty);
         }
     }
 }
