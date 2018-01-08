@@ -58,13 +58,13 @@ namespace Codewars_ConvertStringToCamelCase
         [TestMethod]
         public void Input_appledashBIRD_Should_Be_appleBird()
         {
-            Assert.AreEqual("appleBird",Kata.ToCamelCase("apple-BIRD"));
+            Assert.AreEqual("appleBird", Kata.ToCamelCase("apple-BIRD"));
         }
 
         [TestMethod]
         public void Input_ASIApeople_Should_Be_AsiaPeople()
         {
-            Assert.AreEqual("AsiaPeople",Kata.ToCamelCase("ASIApeople"));
+            Assert.AreEqual("Asiapeople", Kata.ToCamelCase("ASIApeople"));
         }
 
     }
@@ -74,6 +74,8 @@ namespace Codewars_ConvertStringToCamelCase
         public static string ToCamelCase(string s)
         {
             var strs = s.Split(s.Contains("-") ? '-' : '_');
+            if (strs[0].Length > 1)
+                strs[0] = strs[0][0] + strs[0].Substring(1).ToLower();
             for (int i = 1; i < strs.Length; i++)
             {
                 strs[i] = UpperTitle(strs[i]);
