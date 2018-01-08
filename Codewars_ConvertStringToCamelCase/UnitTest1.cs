@@ -80,7 +80,7 @@ namespace Codewars_ConvertStringToCamelCase
             {
                 strs[i] = UpperTitle(strs[i]);
             }
-            return strs.Aggregate(string.Empty, (current, str) => current + str);
+            return string.Join("",strs);
         }
 
 
