@@ -67,6 +67,12 @@ namespace Codewars_ConvertStringToCamelCase
             Assert.AreEqual("Asiapeople", Kata.ToCamelCase("ASIApeople"));
         }
 
+        [TestMethod]
+        public void Input_ASIAdashpeople_Should_Be_AsiaPeople()
+        {
+            Assert.AreEqual("AsiaPeople", Kata.ToCamelCase("ASIA-people"));
+        }
+
     }
 
     public class Kata
