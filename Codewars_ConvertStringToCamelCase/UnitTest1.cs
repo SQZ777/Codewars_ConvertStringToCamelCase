@@ -79,18 +79,29 @@ namespace Codewars_ConvertStringToCamelCase
             Assert.AreEqual("aBA",Kata.ToCamelCase("a-b_a"));
         }
 
+        [TestMethod]
+        public void Input_a_bdashc()
+        {
+            Assert.AreEqual("aBC",Kata.ToCamelCase("a_b-c"));
+        }
+
     }
 
     public class Kata
     {
         public static string ToCamelCase(string s)
         {
-            var strs = s.Split('-');
+            var c = '-';
+            var c2 = '_';
+            if (s.IndexOf('-')>s.IndexOf('_'))
+            {
+                c = '_';
+                c2 = '-';
+            }
+            var strs = s.Split(c);
             strs[0] = (strs[0].Length > 1) ? strs[0][0] + strs[0].Substring(1).ToLower() : strs[0];
             strs = UpperTitleAll(strs);
-            var strs2 = string.Join("", strs).Split('_');
-            for (int i = 1; i < strs2.Length; i++)
-                strs2[i] = UpperTitle(strs2[i]);
+            var strs2 = UpperTitleAll(string.Join("", strs).Split(c2));
             return string.Join("", strs2);
         }
         public static string UpperTitle(string str)
@@ -99,7 +110,6 @@ namespace Codewars_ConvertStringToCamelCase
                 return string.Empty;
             return str.Substring(0, 1).ToUpper() + (str.Length > 1 ? str.Substring(1).ToLower() : string.Empty);
         }
-
         public static string[] UpperTitleAll(string[] strs)
         {
             for (int i = 1; i < strs.Length; i++)
