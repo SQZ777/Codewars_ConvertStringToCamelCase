@@ -24,21 +24,8 @@ namespace Codewars_ConvertStringToCamelCase
     {
         public static string ToCamelCase(string s)
         {
-            string[] strs;
-            if (s.Contains("-"))
-            {
-                strs = s.Split('-');
-            }
-            else
-            {
-                strs = s.Split('_');
-            }
-            var result = string.Empty;
-            foreach (var str in strs)
-            {
-                result += str;
-            }
-            return result;
+            var strs = s.Split(s.Contains("-") ? '-' : '_');
+            return strs.Aggregate(string.Empty, (current, str) => current + str);
         }
     }
 }
