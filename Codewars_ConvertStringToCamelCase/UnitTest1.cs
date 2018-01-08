@@ -61,6 +61,12 @@ namespace Codewars_ConvertStringToCamelCase
             Assert.AreEqual("appleBird",Kata.ToCamelCase("apple-BIRD"));
         }
 
+        [TestMethod]
+        public void Input_ASIApeople_Should_Be_AsiaPeople()
+        {
+            Assert.AreEqual("AsiaPeople",Kata.ToCamelCase("ASIApeople"));
+        }
+
     }
 
     public class Kata
