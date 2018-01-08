@@ -1,3 +1,4 @@
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Codewars_ConvertStringToCamelCase
@@ -16,7 +17,13 @@ namespace Codewars_ConvertStringToCamelCase
     {
         public static string ToCamelCase(string s)
         {
-            throw new System.NotImplementedException();
+            var strs = s.Split('-');
+            var result = string.Empty;
+            foreach (var str in strs)
+            {
+                result += str;
+            }
+            return result;
         }
     }
 }
