@@ -73,27 +73,38 @@ namespace Codewars_ConvertStringToCamelCase
             Assert.AreEqual("AsiaPeople", Kata.ToCamelCase("ASIA-people"));
         }
 
+        [TestMethod]
+        public void Input_adashbunderscorea()
+        {
+            Assert.AreEqual("aBA",Kata.ToCamelCase("a-b_a"));
+        }
+
     }
 
     public class Kata
     {
         public static string ToCamelCase(string s)
         {
-            var strs = s.Split(s.Contains("-") ? '-' : '_');
+            var strs = s.Split('-');
             strs[0] = (strs[0].Length > 1) ? strs[0][0] + strs[0].Substring(1).ToLower() : strs[0];
-            for (int i = 1; i < strs.Length; i++)
-            {
-                strs[i] = UpperTitle(strs[i]);
-            }
-            return string.Join("", strs);
+            strs = UpperTitleAll(strs);
+            var strs2 = string.Join("", strs).Split('_');
+            for (int i = 1; i < strs2.Length; i++)
+                strs2[i] = UpperTitle(strs2[i]);
+            return string.Join("", strs2);
         }
-
-
         public static string UpperTitle(string str)
         {
             if (string.IsNullOrEmpty(str))
                 return string.Empty;
             return str.Substring(0, 1).ToUpper() + (str.Length > 1 ? str.Substring(1).ToLower() : string.Empty);
+        }
+
+        public static string[] UpperTitleAll(string[] strs)
+        {
+            for (int i = 1; i < strs.Length; i++)
+                strs[i] = UpperTitle(strs[i]);
+            return strs;
         }
     }
 }
