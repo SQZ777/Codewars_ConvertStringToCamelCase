@@ -40,7 +40,25 @@ namespace Codewars_ConvertStringToCamelCase
         [TestMethod]
         public void Input_adashb_Should_Be_aB()
         {
-            Assert.AreEqual("aB",Kata.ToCamelCase("a-b"));
+            Assert.AreEqual("aB", Kata.ToCamelCase("a-b"));
+        }
+
+        [TestMethod]
+        public void Input_aunderb_Should_Be_aB()
+        {
+            Assert.AreEqual("aB", Kata.ToCamelCase("a_b"));
+        }
+
+        [TestMethod]
+        public void Input_Aunderb_Should_Be_AB()
+        {
+            Assert.AreEqual("AB", Kata.ToCamelCase("A_b"));
+        }
+
+        [TestMethod]
+        public void Input_appledashBIRD_Should_Be_appleBird()
+        {
+            Assert.AreEqual("appleBird",Kata.ToCamelCase("apple-BIRD"));
         }
 
     }
