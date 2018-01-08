@@ -25,9 +25,9 @@ namespace Codewars_ConvertStringToCamelCase
         }
 
         [TestMethod]
-        public void UpperIt_Input_adashb_Should_Be_aB()
+        public void UpperTitle_Input_adashb_Should_Be_aB()
         {
-            Assert.AreEqual("aB", Kata.ToCamelCase("a-b"));
+            Assert.AreEqual("aB", Kata.UpperTitle("a-b"));
         }
 
     }
@@ -38,6 +38,12 @@ namespace Codewars_ConvertStringToCamelCase
         {
             var strs = s.Split(s.Contains("-") ? '-' : '_');
             return strs.Aggregate(string.Empty, (current, str) => current + str);
+        }
+
+
+        public static string UpperTitle(string str)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
